@@ -57,5 +57,11 @@ function is_valid_email($email, $test_mx = false) { /* checks if email address i
 		return false;
 }
 
+function show_gravatar($email, $size, $default, $rating) { /* allows use of gravatars */
+	echo '<img src="http://www.gravatar.com/avatar.php?gravatar_id='.md5($email).
+		'&default='.$default.'&size='.$size.'&rating='.$rating.'" width="'.$size.'px"
+		height="'.$size.'px" />';
+}
+
 
 ?>
