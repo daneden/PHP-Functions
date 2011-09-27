@@ -8,7 +8,9 @@ function clean($str) { /* sanatize strings for databases & security */
 	return mysql_real_escape_string($str);
 }
 
-function nl2p($string, $line_breaks = true, $xml = true) { /* Print a string, turning new lines into paragraph tags */
+/* turning new lines into paragraph tags */
+/* USAGE: echo nl2p($string); */
+function nl2p($string, $line_breaks = true, $xml = true) {
     // Remove existing HTML formatting to avoid double-wrapping things
     $string = str_replace(array('<p>', '</p>', '<br>', '<br />'), '', $string);
     
@@ -34,6 +36,8 @@ function genPassword($length = 8) { /* generate an 8-character random password/s
     return $result;
 }
 
+/* turns urls to hyperlinks */
+/* USAGE: echo urls_to_links('http://daneden.me'); outputs <a href="http://daneden.me">http://daneden.me</a> */
 function urls_to_links($str) { /* Credit for this function goes to @coleydotco */
     $pattern = '/((?:http|https)(?::\\/{2}[\\w]+)(?:[\\/|\\.]?)(?:[^\\s"]*))/is';
     $replace = '<a target="blank" href="$1">$1</a>';
