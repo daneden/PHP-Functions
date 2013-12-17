@@ -5,7 +5,7 @@ function clean($str) { /* sanatize strings for databases & security */
 	if(get_magic_quotes_gpc()) {
 		$str = stripslashes($str);
 	}
-	return mysql_real_escape_string($str);
+	return mysqli_real_escape_string($str);
 }
 
 /* turning new lines into paragraph tags */
